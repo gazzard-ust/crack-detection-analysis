@@ -1,0 +1,24 @@
+\begin{table}[ht]
+\centering
+\caption{Mitigation strategy evaluation on the test set (mean $\pm$ std, 5 seeds). Strategies applied to YOLO-World XL only.}
+\label{tab:mitigation}
+\begin{tabular}{lcccc}
+\toprule
+Metric & Baseline & CutMix & Multi-Scale & Combined \\
+\midrule
+mAP@50-95 & \textbf{$0.8628 \pm 0.0044$} & $0.8399 \pm 0.0218$ & $0.8390 \pm 0.0284$ & $0.8045 \pm 0.0657$ \\
+mAP@50 & \textbf{$0.9862 \pm 0.0019$} & $0.9852 \pm 0.0025$ & $0.9786 \pm 0.0081$ & $0.9570 \pm 0.0506$ \\
+Precision & \textbf{$0.9849 \pm 0.0040$} & $0.9792 \pm 0.0081$ & $0.9718 \pm 0.0111$ & $0.9506 \pm 0.0458$ \\
+Recall & \textbf{$0.9803 \pm 0.0047$} & $0.9759 \pm 0.0048$ & $0.9668 \pm 0.0120$ & $0.9417 \pm 0.0606$ \\
+F1 Score & \textbf{$0.9826 \pm 0.0040$} & $0.9776 \pm 0.0060$ & $0.9693 \pm 0.0108$ & $0.9461 \pm 0.0532$ \\
+\midrule
+\multicolumn{5}{l}{\textit{Per-class AP@50-95}} \\
+\midrule
+Dummy crack & \textbf{$0.9415 \pm 0.0096$} & $0.9241 \pm 0.0123$ & $0.9048 \pm 0.0488$ & $0.8816 \pm 0.0488$ \\
+Paper crack & \textbf{$0.7393 \pm 0.0067$} & $0.7121 \pm 0.0419$ & $0.7240 \pm 0.0146$ & $0.6975 \pm 0.0471$ \\
+PVC pipe crack & \textbf{$0.9077 \pm 0.0047$} & $0.8834 \pm 0.0127$ & $0.8882 \pm 0.0280$ & $0.8345 \pm 0.1029$ \\
+\midrule
+Substrate gap & $20.2$ pp & $21.2$ pp & $18.1$ pp & $18.4$ pp \\
+\bottomrule
+\end{tabular}
+\end{table}

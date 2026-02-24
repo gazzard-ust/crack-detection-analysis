@@ -1,0 +1,41 @@
+# Dataset images (available on Roboflow)
+**/pipe-crack-detection-1/train/
+**/pipe-crack-detection-1/valid/
+**/pipe-crack-detection-1/test/
+
+# Model weights & run directories
+crack_detection_runs/
+runs/
+*.pt
+
+# Intermediate result files
+mitigation_results_gpu*.json
+mitigation_results_eval_only.json
+mitigation_results_resume_gpu*.json
+
+# Training logs
+wandb/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# System
+.DS_Store
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.synctex(busy)
+
+# Misc
+run_analysis_after_training.sh
+IEEEtran_HOWTO.pdf
+gazzard-files/

@@ -1,0 +1,12 @@
+{
+  "YOLO-World XL": {
+    "ms_per_image": 19.88,
+    "std_ms": 7.74,
+    "fps": 50.3
+  },
+  "YOLOv8x": {
+    "ms_per_image": 14.04,
+    "std_ms": 6.96,
+    "fps": 71.2
+  }
+}

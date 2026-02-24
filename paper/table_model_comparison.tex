@@ -1,0 +1,23 @@
+\begin{table}[ht]
+\centering
+\caption{Comparison of YOLO-World XL and YOLOv8x on the test set (mean $\pm$ std over 5 seeds). Best results are in \textbf{bold}. Statistical significance is assessed using a paired $t$-test (paired by seed; same fixed test set across all runs).}
+\label{tab:model_comparison}
+\begin{tabular}{lccc}
+\toprule
+Metric & YOLO-World XL & YOLOv8x & $p$-value \\
+\midrule
+mAP@50-95       & \textbf{$0.8628 \pm 0.0044$} & $0.8545 \pm 0.0075$ & $0.124$ \\
+mAP@50          & \textbf{$0.9862 \pm 0.0019$} & $0.9807 \pm 0.0056$ & $0.038^{*}$ \\
+Precision       & \textbf{$0.9849 \pm 0.0040$} & $0.9787 \pm 0.0072$ & $0.157$ \\
+Recall          & \textbf{$0.9803 \pm 0.0047$} & $0.9686 \pm 0.0109$ & $0.024^{*}$ \\
+F1 Score        & \textbf{$0.9826 \pm 0.0040$} & $0.9736 \pm 0.0079$ & $0.025^{*}$ \\
+\midrule
+\multicolumn{4}{l}{\textit{Per-class AP@50-95}} \\
+\midrule
+Dummy crack     & \textbf{$0.9415 \pm 0.0096$} & $0.9396 \pm 0.0084$ & --- \\
+PVC pipe crack  & \textbf{$0.9077 \pm 0.0047$} & $0.8996 \pm 0.0140$ & --- \\
+Paper crack     & \textbf{$0.7393 \pm 0.0067$} & $0.7243 \pm 0.0134$ & --- \\
+\bottomrule
+\multicolumn{4}{l}{\footnotesize $^{*}p < 0.05$ (paired $t$-test, $n=5$ seeds).} \\
+\end{tabular}
+\end{table}
