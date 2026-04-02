@@ -139,7 +139,7 @@ All models share identical hyperparameters for fair comparison:
 │   ├── fig_perclass_ap.png            # Localization gap visualization
 │   ├── fig_mitigation_comparison.png  # Mitigation strategy results
 │   └── fig_training_curves.png        # Training convergence
-├── code/                              # Training & analysis scripts
+├── code/                              # Training, analysis & orchestration
 │   ├── ylwd_train.py                  # YOLO-World XL training
 │   ├── ylwd_eval.py                   # Model evaluation
 │   ├── baseline_train.py              # YOLOv8x baseline training
@@ -147,10 +147,18 @@ All models share identical hyperparameters for fair comparison:
 │   ├── multiseed_analysis.py          # Baseline analysis & figures
 │   ├── mitigation_runner.py           # Mitigation experiment runner
 │   ├── mitigation_analysis.py         # Mitigation analysis & figures
+│   ├── mitigation_parallel.py         # Parallel multi-GPU mitigation launcher
+│   ├── mitigation_worker.py           # Single-GPU mitigation worker
+│   ├── mitigation_resume.py           # Resume incomplete mitigation runs
 │   ├── dl_dataset.py                  # Dataset download helper
-│   └── generate_fig_*.py              # Figure generation scripts
+│   ├── generate_fig_*.py              # Figure generation scripts
+│   ├── chain_gpu*.sh                  # GPU chaining scripts
+│   └── wait_and_merge.sh              # Wait for workers & merge results
 ├── data/                              # Results & dataset config
 │   ├── multiseed_results.json         # Raw baseline results (10 runs)
+│   ├── multiseed_results_summary.md   # Baseline results summary
+│   ├── mitigation_results.json        # Mitigation experiment results
+│   ├── mitigation_results_summary.md  # Mitigation results summary
 │   ├── evaluation_results.json        # Evaluation metrics
 │   ├── inference_speed.json           # Latency benchmarks
 │   └── pipe-crack-detection-1/        # Dataset configuration
