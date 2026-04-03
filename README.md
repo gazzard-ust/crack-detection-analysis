@@ -21,10 +21,6 @@ Pipe inspection systems encounter diverse surface conditions in the field. Balan
 
 ## 📊 Key Results
 
-<table border="0" cellspacing="0" cellpadding="0" style="border: none;">
-<tr style="border: none;">
-<td valign="top" style="border: none;">
-
 ### 🧱 Substrate-Dependent AP Gap
 
 | Class | AP@50-95 | AP@50 | Loc. Gap |
@@ -34,9 +30,6 @@ Pipe inspection systems encounter diverse surface conditions in the field. Balan
 | Paper crack | 73.9% | 97.2% | **23.3 pp** |
 
 <sub>YOLO-World XL, mean of 5 seeds. All classes have 400 training labels.</sub>
-
-</td>
-<td valign="top" style="border: none;">
 
 ### 🏆 Model Comparison
 
@@ -48,10 +41,6 @@ Pipe inspection systems encounter diverse surface conditions in the field. Balan
 | F1 | **0.983** | 0.974 | 1.44 |
 
 <sub>Paired t-test, n=5 seeds. Cohen's *d* > 0.8 = large effect.</sub>
-
-</td>
-</tr>
-</table>
 
 ### 🛠️ Mitigation Strategies
 
