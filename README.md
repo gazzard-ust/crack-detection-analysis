@@ -23,7 +23,7 @@ Pipe inspection systems encounter diverse surface conditions in the field. Balan
 
 <table>
 <tr>
-<td>
+<td valign="top">
 
 ### 🧱 Substrate-Dependent AP Gap
 
@@ -36,7 +36,7 @@ Pipe inspection systems encounter diverse surface conditions in the field. Balan
 <sub>YOLO-World XL, mean of 5 seeds. All classes have 400 training labels.</sub>
 
 </td>
-<td>
+<td valign="top">
 
 ### 🏆 Model Comparison
 
