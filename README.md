@@ -1,8 +1,8 @@
 <div align="center">
 
-# Substrate-Dependent Performance Variation in Pipe Crack Detection
+# 🔬 Substrate-Dependent Performance Variation in Pipe Crack Detection
 
-### Diagnosis, Augmentation, and the Limits of Training-Time Mitigation
+### 🧪 Diagnosis, Augmentation, and the Limits of Training-Time Mitigation
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Ultralytics](https://img.shields.io/badge/ultralytics-8.3-purple.svg)](https://github.com/ultralytics/ultralytics)
@@ -15,17 +15,17 @@
 
 **TL;DR** &mdash; Despite class-balanced training (400 labels per class), per-class AP@50-95 ranges from **94.2%** (smooth PVC) to **73.9%** (textured tissue) &mdash; a **20.2 pp gap** consistent across both YOLO-World XL and YOLOv8x. Decomposing by IoU threshold reveals this is a *localization* problem (23.3 pp AP@50-to-AP@50-95 drop for paper crack vs. 5.3 pp for dummy crack). Three augmentation strategies (CutMix, multi-scale, combined) fail to close the gap, indicating a fundamental substrate-driven challenge.
 
-## Why This Matters
+## ❓ Why This Matters
 
 Pipe inspection systems encounter diverse surface conditions in the field. Balanced training data does **not** guarantee balanced per-class performance &mdash; substrate visual complexity governs detection difficulty. This has direct implications for practitioners deploying inspection systems on real-world piping infrastructure.
 
-## Key Results
+## 📊 Key Results
 
 <table>
 <tr>
 <td>
 
-### Substrate-Dependent AP Gap
+### 🧱 Substrate-Dependent AP Gap
 
 | Class | AP@50-95 | AP@50 | Loc. Gap |
 |-------|:--------:|:-----:|:--------:|
@@ -38,7 +38,7 @@ Pipe inspection systems encounter diverse surface conditions in the field. Balan
 </td>
 <td>
 
-### Model Comparison
+### 🏆 Model Comparison
 
 | Metric | YOLO-World XL | YOLOv8x | *d* |
 |--------|:---:|:---:|:---:|
@@ -53,7 +53,7 @@ Pipe inspection systems encounter diverse surface conditions in the field. Balan
 </tr>
 </table>
 
-### Mitigation Strategies
+### 🛠️ Mitigation Strategies
 
 | Strategy | mAP@50-95 | Substrate Gap | *p* (gap) |
 |----------|:---------:|:------------:|:---------:|
@@ -64,9 +64,9 @@ Pipe inspection systems encounter diverse surface conditions in the field. Balan
 
 <sub>None significant after Bonferroni correction (&alpha; = 0.0167).</sub>
 
-**Takeaway:** The substrate gap persists under all augmentation conditions, reinforcing its origin as a fundamental localization challenge tied to substrate visual properties.
+💡 **Takeaway:** The substrate gap persists under all augmentation conditions, reinforcing its origin as a fundamental localization challenge tied to substrate visual properties.
 
-## Dataset
+## 🗂️ Dataset
 
 | | Train | Val | Test | Total |
 |---|:---:|:---:|:---:|:---:|
@@ -75,9 +75,9 @@ Pipe inspection systems encounter diverse surface conditions in the field. Balan
 
 Three crack classes on a texture gradient: **Dummy crack** (smooth PVC) &middot; **PVC pipe crack** (smooth PVC, real fractures) &middot; **Paper crack** (porous tissue)
 
-Available on [Roboflow Universe](https://universe.roboflow.com/gazxard/pipe-crack-detection/dataset/1) under CC BY 4.0.
+📦 Available on [Roboflow Universe](https://universe.roboflow.com/gazxard/pipe-crack-detection/dataset/1) under CC BY 4.0.
 
-## Quick Start
+## 🚀 Quick Start
 
 ```bash
 # 1. Install dependencies
@@ -92,23 +92,23 @@ python code/ylwd_train.py
 python code/baseline_train.py --seed 42
 ```
 
-## Reproducing the Full Experiment
+## 🔁 Reproducing the Full Experiment
 
-### Baseline (5 seeds x 2 models, ~8h on A100)
+### 🧪 Baseline (5 seeds x 2 models, ~8h on A100)
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python code/multiseed_runner.py --device 0
 python code/multiseed_analysis.py
 ```
 
-### Mitigation strategies (5 seeds x 3 strategies, ~12h on A100)
+### 🩹 Mitigation strategies (5 seeds x 3 strategies, ~12h on A100)
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python code/mitigation_runner.py --device 0
 python code/mitigation_analysis.py
 ```
 
-### Training Configuration
+### ⚙️ Training Configuration
 
 All models share identical hyperparameters for fair comparison:
 
@@ -121,25 +121,25 @@ All models share identical hyperparameters for fair comparison:
 | Augmentation | HSV, flip, mosaic, mixup, rotation, scale, shear |
 | Weight decay | 0.05 |
 
-## Repository Structure
+## 📁 Repository Structure
 
 ```
 .
-├── paper/                             # LaTeX source
+├── 📄 paper/                             # LaTeX source
 │   ├── YOLO.tex                       # Main paper
 │   ├── references.bib                 # Bibliography
 │   ├── table_mitigation.tex           # Mitigation results table
 │   ├── table_model_comparison.tex     # Model comparison table
 │   ├── reviewer_response_sections.tex # Reviewer response drafts
 │   └── IEEEtran.cls                   # IEEE conference style
-├── figures/                           # All paper figures
+├── 📊 figures/                           # All paper figures
 │   ├── fig_samples.png                # Dataset samples
 │   ├── fig_qualitative.png            # Detection output examples
 │   ├── fig_model_comparison.png       # YOLO-World XL vs YOLOv8x
 │   ├── fig_perclass_ap.png            # Localization gap visualization
 │   ├── fig_mitigation_comparison.png  # Mitigation strategy results
 │   └── fig_training_curves.png        # Training convergence
-├── code/                              # Training, analysis & orchestration
+├── 💻 code/                              # Training, analysis & orchestration
 │   ├── ylwd_train.py                  # YOLO-World XL training
 │   ├── ylwd_eval.py                   # Model evaluation
 │   ├── baseline_train.py              # YOLOv8x baseline training
@@ -154,7 +154,7 @@ All models share identical hyperparameters for fair comparison:
 │   ├── generate_fig_*.py              # Figure generation scripts
 │   ├── chain_gpu*.sh                  # GPU chaining scripts
 │   └── wait_and_merge.sh              # Wait for workers & merge results
-├── data/                              # Results & dataset config
+├── 📂 data/                              # Results & dataset config
 │   ├── multiseed_results.json         # Raw baseline results (10 runs)
 │   ├── multiseed_results_summary.md   # Baseline results summary
 │   ├── mitigation_results.json        # Mitigation experiment results
@@ -163,10 +163,10 @@ All models share identical hyperparameters for fair comparison:
 │   ├── inference_speed.json           # Latency benchmarks
 │   └── pipe-crack-detection-1/        # Dataset configuration
 │       └── data.yaml
-└── README.md
+└── 📋 README.md
 ```
 
-## Citation
+## 📝 Citation
 
 ```bibtex
 @inproceedings{pangaliman2026substrate,
@@ -180,6 +180,6 @@ All models share identical hyperparameters for fair comparison:
 }
 ```
 
-## License
+## 📄 License
 
 Code: MIT &middot; Dataset: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
