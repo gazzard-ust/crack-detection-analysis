@@ -126,6 +126,12 @@
     .chips { margin-top: 14px; }
     .chip { display:inline-block; background: var(--chip); border:1px solid var(--border); border-radius: 999px; padding: 4px 12px; font-size: 12.5px; margin: 3px; color: var(--muted); }
 
+    .awards { list-style:none; padding:0; margin: 8px 0 0; display:grid; gap: 12px; }
+    .award { display:flex; align-items:flex-start; gap:14px; background:#1a1f16; border:1px solid var(--border); border-left: 3px solid var(--brand); border-radius: var(--radius-md); padding: 14px 16px; }
+    .award .medal { font-size: 22px; line-height: 1.2; }
+    .award .rank { font-weight: 800; color: var(--brand-2); }
+    .award .venue { color: var(--muted); font-size: 14px; margin-top: 2px; }
+
     footer { color: var(--muted); font-size: 13px; padding: 40px 0; text-align:center; border-top: 1px solid var(--border); margin-top: 60px; }
 
     @media (max-width: 768px) {
@@ -143,6 +149,7 @@
       <div class="logo">🔬 Pipe Crack Detection</div>
       <nav style="display:flex; gap:10px; flex-wrap: wrap;">
         <a class="btn-sm" href="#abstract">Abstract</a>
+        <a class="btn-sm" href="#awards">Awards</a>
         <a class="btn-sm" href="#results">Results</a>
         <a class="btn-sm" href="#figures">Figures</a>
         <a class="btn-sm" href="#dataset">Dataset</a>
@@ -156,6 +163,7 @@
     <div class="hero">
       <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;">
         <span class="pretitle">Accepted in <a href="https://www.icras.org/" target="_blank" rel="noopener">ICRAS 2026</a></span>
+        <span class="pretitle">🏆 Champion • FUSERS 2026 Video Presentation</span>
         <span class="pretitle">Object Detection • Pipe Inspection</span>
       </div>
 
@@ -168,8 +176,6 @@
       </p>
 
       <div class="authors">
-        <a href="https://www.ust.edu.ph/profile/pangaliman-ma-madecheen-s/" target="_blank" rel="noopener">Ma. Madecheen S. Pangaliman</a>
-        <span>•</span>
         <span>Mark Kenneth Biasbas</span>
         <span>•</span>
         <span>Faustino Miguel Flores</span>
@@ -179,6 +185,10 @@
         <span>Lorin Angela Velasco</span>
         <span>•</span>
         <span>Dulce Maria Yadao</span>
+        <span>•</span>
+        <span>Anthony James C. Bautista</span>
+        <span>•</span>
+        <a href="https://www.ust.edu.ph/profile/pangaliman-ma-madecheen-s/" target="_blank" rel="noopener">Ma. Madecheen S. Pangaliman</a>
       </div>
 
       <div class="affil">Department of Electronics Engineering, Faculty of Engineering, University of Santo Tomas</div>
@@ -218,6 +228,17 @@
         <span class="chip">localization</span>
         <span class="chip">data augmentation</span>
       </div>
+    </section>
+
+    <!-- Awards -->
+    <section id="awards" class="card">
+      <h2>🏆 Awards &amp; Recognition</h2>
+      <ul class="awards">
+        <li class="award"><span class="medal">🥇</span><div><div class="rank">Champion</div><div class="venue">FUSERS 2026 — Video Presentation</div></div></li>
+        <li class="award"><span class="medal">🏅</span><div><div class="rank">People's Choice</div><div class="venue">ECE Open Lab Exhibit</div></div></li>
+        <li class="award"><span class="medal">🎤</span><div><div class="rank">Presenter</div><div class="venue">S&amp;T Undergraduate Research Symposium</div></div></li>
+        <li class="award"><span class="medal">📌</span><div><div class="rank">Participant</div><div class="venue">2026 NRCP Annual Scientific Conference &amp; 93rd General Membership Assembly — Poster Exhibit</div></div></li>
+      </ul>
     </section>
 
     <!-- Results -->
@@ -334,15 +355,16 @@
     <section id="bibtex" class="card">
       <h2>📝 BibTeX</h2>
       <p>If you find this work useful in your research, please consider citing:</p>
-      <div class="codebox" id="bib">@inproceedings{pangaliman2026substrate,
+      <div class="codebox" id="bib">@inproceedings{biasbas2026substrate,
   title     = {Substrate-Dependent Performance Variation in Pipe Crack Detection:
                Diagnosis, Augmentation, and the Limits of Training-Time Mitigation},
-  author    = {Pangaliman, Ma. Madecheen S. and
-               Biasbas, Mark Kenneth and
+  author    = {Biasbas, Mark Kenneth and
                Flores, Faustino Miguel and
                Gatchalian, Carl Christian and
                Velasco, Lorin Angela and
-               Yadao, Dulce Maria},
+               Yadao, Dulce Maria and
+               Bautista, Anthony James C. and
+               Pangaliman, Ma. Madecheen S.},
   booktitle = {Proc. International Conference on Robotics and Automation Sciences (ICRAS)},
   year      = {2026}
 }</div>

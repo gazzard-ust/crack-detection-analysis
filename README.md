@@ -159,12 +159,13 @@ All models share identical hyperparameters for fair comparison:
 ## 📝 Citation
 
 ```bibtex
-@inproceedings{pangaliman2026substrate,
+@inproceedings{biasbas2026substrate,
   title={Substrate-Dependent Performance Variation in Pipe Crack Detection:
          Diagnosis, Augmentation, and the Limits of Training-Time Mitigation},
-  author={Pangaliman, Ma. Madecheen S. and Biasbas, Mark Kenneth and
-          Flores, Faustino Miguel and Gatchalian, Carl Christian and
-          Velasco, Lorin Angela and Yadao, Dulce Maria},
+  author={Biasbas, Mark Kenneth and Flores, Faustino Miguel and
+          Gatchalian, Carl Christian and Velasco, Lorin Angela and
+          Yadao, Dulce Maria and Bautista, Anthony James C. and
+          Pangaliman, Ma. Madecheen S.},
   booktitle={Proc. International Conference on Robotics and Automation Sciences (ICRAS)},
   year={2026}
 }
