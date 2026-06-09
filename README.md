@@ -4,6 +4,7 @@
 
 ### 🧪 Diagnosis, Augmentation, and the Limits of Training-Time Mitigation
 
+[![Project Page](https://img.shields.io/badge/project-page-2ea44f.svg)](https://gazzard-ust.github.io/crack-detection-analysis/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Ultralytics](https://img.shields.io/badge/ultralytics-8.3-purple.svg)](https://github.com/ultralytics/ultralytics)
 [![License: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-green.svg)](https://creativecommons.org/licenses/by/4.0/)
