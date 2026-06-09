@@ -163,8 +163,8 @@ All models share identical hyperparameters for fair comparison:
   title={Substrate-Driven Localization Gaps in Pipe Crack Detection},
   author={Biasbas, Mark Kenneth and Flores, Faustino Miguel and
           Gatchalian, Carl Christian and Velasco, Lorin Angela and
-          Yadao, Dulce Maria and Pangaliman, Ma. Madecheen S. and
-          Bautista, Anthony James C.},
+          Yadao, Dulce Maria and Pangaliman, Ma. Madecheen and
+          Bautista, Anthony James},
   booktitle={Proc. International Conference on Robotics and Automation Sciences (ICRAS)},
   year={2026}
 }
