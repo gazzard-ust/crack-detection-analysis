@@ -13,14 +13,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #1a1f16;
-      --panel: #232b1e;
-      --ink: #e8f5e0;
-      --muted: #a8c99e;
-      --brand: #7cb342;
-      --brand-2: #9ccc65;
-      --border: #3d4a35;
-      --chip: #2d3827;
+      --bg: #0f1620;
+      --panel: #1a2433;
+      --ink: #e7eef6;
+      --muted: #94a6bb;
+      --brand: #38bdf8;
+      --brand-2: #7dd3fc;
+      --border: #2a3647;
+      --chip: #1f2b3b;
       --shadow: 0 2px 12px rgba(0,0,0,.3);
       --radius-xl: 18px;
       --radius-lg: 14px;
@@ -34,7 +34,7 @@
       margin: 0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
       color: var(--ink);
-      background: linear-gradient(135deg, #1a1f16 0%, #232b1e 50%, #1e2519 100%);
+      background: linear-gradient(135deg, #0f1620 0%, #1a2433 55%, #0d1622 100%);
       background-attachment: fixed;
       line-height: 1.55;
       letter-spacing: .02em;
@@ -46,7 +46,7 @@
 
     header {
       position: sticky; top: 0; z-index: 40; backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(26,31,22,.95), rgba(26,31,22,.8) 60%, rgba(26,31,22,0));
+      background: linear-gradient(to bottom, rgba(15,22,32,.95), rgba(15,22,32,.8) 60%, rgba(15,22,32,0));
       border-bottom: 1px solid var(--border);
     }
     .nav { display:flex; align-items:center; justify-content:space-between; gap:16px; padding: 10px 24px; }
@@ -68,14 +68,14 @@
     .btn { display:inline-flex; align-items:center; gap:10px; font-weight:700; padding: 12px 18px; border-radius: 12px; border: 1px solid var(--border); text-decoration:none; transition: transform .05s ease; box-shadow: var(--shadow); }
     .btn:hover { transform: translateY(-1px); text-decoration: none; }
     .btn.primary {
-      background: linear-gradient(135deg, #a6e06d, #7cb342);
-      color: #1a1f16;
+      background: linear-gradient(135deg, #7dd3fc, #38bdf8);
+      color: #08131f;
       border: none;
-      box-shadow: 0 6px 18px rgba(124, 179, 66, 0.35);
+      box-shadow: 0 6px 18px rgba(56, 189, 248, 0.35);
     }
     .btn.primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(124, 179, 66, 0.5);
+      box-shadow: 0 10px 22px rgba(56, 189, 248, 0.5);
     }
     .btn.ghost { background: var(--panel); color: var(--ink); border-color: var(--border); }
     .btn.ghost:hover { background: var(--chip); border-color: var(--brand); }
@@ -90,7 +90,7 @@
 
     /* Headline numbers */
     .stats { display:grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 8px 0 4px; }
-    .stat { background:#1a1f16; border:1px solid var(--border); border-radius: var(--radius-md); padding: 18px; text-align:center; }
+    .stat { background:#0c131d; border:1px solid var(--border); border-radius: var(--radius-md); padding: 18px; text-align:center; }
     .stat .v { font-size: 30px; font-weight: 800; color: var(--brand-2); line-height:1.1; }
     .stat .v.warn { color: #e0a86d; }
     .stat .k { font-size: 12.5px; color: var(--muted); margin-top: 6px; line-height:1.4; }
@@ -102,7 +102,7 @@
     figcaption { color: var(--muted); font-size: 13.5px; line-height:1.6; margin: 2px 0 6px; }
 
     .codebox {
-      background: #1a1f16;
+      background: #0c131d;
       border-radius: var(--radius-md);
       border:1px solid var(--border);
       padding: 20px;
@@ -116,18 +116,18 @@
     .copy { margin-top: 14px; font-size: 13px; cursor:pointer; color: var(--ink); background: var(--panel); border:1px solid var(--border); padding: 8px 14px; border-radius: 8px; font-family: inherit; font-weight:600; }
     .copy:hover { border-color: var(--brand); background: var(--chip); }
 
-    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; background: #1a1f16; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; background: #0c131d; }
     th, td { padding: 12px; text-align: center; border: 1px solid var(--border); }
     td:first-child, th:first-child { text-align: left; }
     th { background: var(--chip); color: var(--brand-2); font-weight: 600; }
-    tbody tr:hover { background: rgba(124, 179, 66, 0.05); }
-    td.hl { background: rgba(124, 179, 66, 0.2); font-weight: 700; color: var(--ink); }
+    tbody tr:hover { background: rgba(56, 189, 248, 0.06); }
+    td.hl { background: rgba(56, 189, 248, 0.18); font-weight: 700; color: var(--ink); }
     td.bad { color: #e0a86d; font-weight: 700; }
     .chips { margin-top: 14px; }
     .chip { display:inline-block; background: var(--chip); border:1px solid var(--border); border-radius: 999px; padding: 4px 12px; font-size: 12.5px; margin: 3px; color: var(--muted); }
 
     .awards { list-style:none; padding:0; margin: 8px 0 0; display:grid; gap: 12px; }
-    .award { display:flex; align-items:flex-start; gap:14px; background:#1a1f16; border:1px solid var(--border); border-left: 3px solid var(--brand); border-radius: var(--radius-md); padding: 14px 16px; }
+    .award { display:flex; align-items:flex-start; gap:14px; background:#0c131d; border:1px solid var(--border); border-left: 3px solid var(--brand); border-radius: var(--radius-md); padding: 14px 16px; }
     .award .medal { font-size: 22px; line-height: 1.2; }
     .award .rank { font-weight: 800; color: var(--brand-2); }
     .award .venue { color: var(--muted); font-size: 14px; margin-top: 2px; }
@@ -186,9 +186,9 @@
         <span>•</span>
         <span>Dulce Maria Yadao</span>
         <span>•</span>
-        <span>Anthony James C. Bautista</span>
-        <span>•</span>
         <a href="https://www.ust.edu.ph/profile/pangaliman-ma-madecheen-s/" target="_blank" rel="noopener">Ma. Madecheen S. Pangaliman</a>
+        <span>•</span>
+        <span>Anthony James C. Bautista</span>
       </div>
 
       <div class="affil">Department of Electronics Engineering, Faculty of Engineering, University of Santo Tomas</div>
@@ -363,8 +363,8 @@
                Gatchalian, Carl Christian and
                Velasco, Lorin Angela and
                Yadao, Dulce Maria and
-               Bautista, Anthony James C. and
-               Pangaliman, Ma. Madecheen S.},
+               Pangaliman, Ma. Madecheen S. and
+               Bautista, Anthony James C.},
   booktitle = {Proc. International Conference on Robotics and Automation Sciences (ICRAS)},
   year      = {2026}
 }</div>
@@ -376,8 +376,7 @@
       <h2>🙏 Acknowledgment</h2>
       <p>
         This research was conducted at the Department of Electronics Engineering, Faculty of Engineering,
-        University of Santo Tomas. We thank our institution for providing the computational resources
-        (NVIDIA DGX&nbsp;A100) and support that made this work possible.
+        University of Santo Tomas, under the SafeGuard project of Dr.&nbsp;Anthony James C. Bautista.
       </p>
     </section>
 
