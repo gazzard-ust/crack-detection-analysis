@@ -57,7 +57,8 @@
     .hero { padding: 56px 0 28px; }
     .pretitle { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius: 999px; background: var(--chip); color: var(--muted); font-weight:600; font-size: 12px; letter-spacing:.08em; text-transform:uppercase; }
     .pretitle.award { background: rgba(212, 167, 74, .10); border:1px solid rgba(212, 167, 74, .45); color: #e3c98a; }
-    .award-row { display:flex; flex-wrap:wrap; gap:8px; margin: 12px 0 4px; }
+    .award-row { display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin: 12px 0 4px; }
+    .award-row .pretitle.award { width:100%; justify-content:flex-start; }
     h1 { margin: 14px 0 12px; font-size: clamp(28px, 4.2vw, 52px); line-height:1.07; letter-spacing:.01em; }
     .subtitle { color: var(--muted); font-size: clamp(14px, 1.8vw, 17px); margin-top: 12px; max-width: 880px; }
     .authors { margin: 18px 0 8px; display:flex; flex-wrap:wrap; gap:8px 14px; font-size: 17px; align-items:center; }
@@ -146,6 +147,7 @@
       section.card { padding: 24px; }
       .stats { grid-template-columns: repeat(2, 1fr); }
       .grid2 { grid-template-columns: 1fr; }
+      .award-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
