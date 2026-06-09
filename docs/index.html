@@ -6,7 +6,7 @@
   <title>Substrate-Dependent Performance Variation in Pipe Crack Detection</title>
   <meta name="description" content="Substrate-Dependent Performance Variation in Pipe Crack Detection: Diagnosis, Augmentation, and the Limits of Training-Time Mitigation. Accepted in ICRAS 2026." />
   <meta property="og:title" content="Substrate-Dependent Performance Variation in Pipe Crack Detection" />
-  <meta property="og:description" content="Balanced training does not guarantee balanced per-class performance — a 20+ point substrate-driven localization gap that augmentation cannot close. ICRAS 2026." />
+  <meta property="og:description" content="Balanced training does not guarantee balanced per-class performance. A 20+ point substrate-driven localization gap that augmentation cannot close. ICRAS 2026." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,7 +97,11 @@
     .stat .v.warn { color: #e0a86d; }
     .stat .k { font-size: 12.5px; color: var(--muted); margin-top: 6px; line-height:1.4; }
 
-    .grid2 { display:grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .grid2 { display:grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
+
+    /* Aligned figure pair */
+    .fig-img { background:#fff; border:1px solid var(--border); border-radius: var(--radius-lg); padding: 12px; height: 280px; display:flex; align-items:center; justify-content:center; margin: 14px 0 0; }
+    .fig-img img { max-height: 100%; width: auto; max-width: 100%; margin: 0; border: none; }
 
     img { max-width: 100%; height: auto; border-radius: var(--radius-lg); margin: 14px 0; border: 1px solid var(--border); display:block; }
     figure { margin: 0; }
@@ -127,6 +131,12 @@
     td.bad { color: #e0a86d; font-weight: 700; }
     .chips { margin-top: 14px; }
     .chip { display:inline-block; background: var(--chip); border:1px solid var(--border); border-radius: 999px; padding: 4px 12px; font-size: 12.5px; margin: 3px; color: var(--muted); }
+
+    .specs { list-style:none; padding:0; margin: 6px 0 0; }
+    .specs li { display:flex; justify-content:space-between; gap:14px; border-bottom:1px dashed var(--border); padding:9px 2px; font-size:14px; }
+    .specs li:last-child { border-bottom:none; }
+    .specs li .k2 { color: var(--muted); }
+    .specs li .v2 { color: var(--ink); font-weight:600; text-align:right; }
 
     footer { color: var(--muted); font-size: 13px; padding: 40px 0; text-align:center; border-top: 1px solid var(--border); margin-top: 60px; }
 
@@ -170,7 +180,7 @@
       <h1>Substrate-Dependent Performance Variation in Pipe Crack Detection</h1>
 
       <p class="subtitle">
-        Diagnosis, Augmentation, and the Limits of Training-Time Mitigation — balanced training data does not
+        Diagnosis, Augmentation, and the Limits of Training-Time Mitigation. Balanced training data does not
         guarantee balanced per-class performance. We trace a 20+ point accuracy gap to a substrate-driven
         localization failure that data augmentation cannot close.
       </p>
@@ -212,7 +222,7 @@
         class. Two object detection models, YOLO-World&nbsp;XL and YOLOv8x, were each trained five times with different
         random seeds on an NVIDIA DGX&nbsp;A100. YOLO-World&nbsp;XL achieved an overall mAP (IoU 0.50–0.95) of 0.863, but
         per-class performance varied widely: 94.2&nbsp;percent for cracks on smooth PVC versus only 73.9&nbsp;percent on
-        textured tissue — a gap of over 20 percentage points present in both models. An analysis across IoU thresholds
+        textured tissue, a gap of over 20 percentage points present in both models. An analysis across IoU thresholds
         revealed that the model can detect cracks on textured surfaces (97.1&nbsp;percent AP at IoU 0.50) but fails to
         produce precise bounding boxes, dropping 23.1 percentage points at stricter thresholds. Three data augmentation
         strategies (CutMix, multi-scale training, and their combination) were tested but none significantly reduced the
@@ -270,11 +280,11 @@
             </tbody>
           </table>
           </div>
-          <p style="font-size:13px; text-align:left;">Paired <em>t</em>-test. Cohen's <em>d</em>&nbsp;&gt;&nbsp;0.8 = large effect — but the substrate gap appears in both.</p>
+          <p style="font-size:13px; text-align:left;">Paired <em>t</em>-test. Cohen's <em>d</em>&nbsp;&gt;&nbsp;0.8 = large effect, but the substrate gap appears in both.</p>
         </div>
       </div>
 
-      <h3>Mitigation Strategies — None Close the Gap</h3>
+      <h3>Mitigation Strategies: None Close the Gap</h3>
       <div style="overflow-x:auto;">
       <table>
         <thead><tr><th>Strategy</th><th>mAP<sub>50:95</sub></th><th>Substrate gap</th><th><em>p</em> (gap)</th></tr></thead>
@@ -295,7 +305,7 @@
       <h3>Localization Gap Across IoU Thresholds</h3>
       <figure>
         <div style="background:#fff; padding:16px; border-radius:var(--radius-lg);"><img src="figures/fig_perclass_ap.png" alt="Per-class AP and localization gap across IoU thresholds" style="border:none; margin:0;"></div>
-        <figcaption>AP holds at IoU 0.50 across all classes but collapses on textured tissue at stricter IoU — the model finds the crack but cannot place the box.</figcaption>
+        <figcaption>AP holds at IoU 0.50 across all classes but collapses on textured tissue at stricter IoU. The model finds the crack but cannot place the box.</figcaption>
       </figure>
 
       <h3>Dataset Samples</h3>
@@ -312,11 +322,11 @@
 
       <div class="grid2">
         <figure>
-          <div style="background:#fff; padding:16px; border-radius:var(--radius-lg);"><img src="figures/fig_mitigation_gap.png" alt="Substrate gap under each mitigation strategy" style="border:none; margin:0;"></div>
+          <div class="fig-img"><img src="figures/fig_mitigation_gap.png" alt="Substrate gap under each mitigation strategy"></div>
           <figcaption>The substrate gap survives CutMix, multi-scale, and combined augmentation.</figcaption>
         </figure>
         <figure>
-          <img src="figures/fig_training_curves.jpg" alt="Training convergence curves">
+          <div class="fig-img"><img src="figures/fig_training_curves.jpg" alt="Training convergence curves"></div>
           <figcaption>Both models train stably to comparable overall mAP.</figcaption>
         </figure>
       </div>
@@ -325,18 +335,62 @@
     <!-- Dataset -->
     <section id="dataset" class="card">
       <h2>🗂️ Dataset</h2>
-      <p>Three crack classes on a texture gradient, with balanced labels per class. Available on Roboflow Universe under CC&nbsp;BY&nbsp;4.0.</p>
+      <p>
+        The dataset is purpose-built as a controlled <strong>texture gradient</strong>: three crack types are placed
+        on surfaces that progress from smooth, low-texture PVC to porous, high-texture tissue paper. Because every class
+        carries an identical number of labels (400 each), the dataset isolates <em>substrate visual complexity</em> as
+        the variable under study, holding data quantity constant so that any per-class performance gap can be attributed
+        to surface texture rather than label imbalance.
+      </p>
+
+      <h3>Class Composition</h3>
       <div style="overflow-x:auto;">
-      <table style="max-width:560px;">
-        <thead><tr><th></th><th>Train</th><th>Val</th><th>Test</th><th>Total</th></tr></thead>
+      <table>
+        <thead><tr><th>Class</th><th>Substrate</th><th>Surface texture</th><th>Train labels</th><th>AP<sub>50:95</sub></th></tr></thead>
         <tbody>
-          <tr><td>Images</td><td>2,292</td><td>217</td><td>108</td><td class="hl">2,617</td></tr>
-          <tr><td>Labels / class</td><td>400</td><td>—</td><td>—</td><td>400</td></tr>
+          <tr><td>Dummy crack</td><td>Smooth PVC sheet</td><td>Low</td><td>400</td><td class="hl">94.2%</td></tr>
+          <tr><td>PVC pipe crack</td><td>PVC pipe (real fractures)</td><td>Low / curved</td><td>400</td><td>90.8%</td></tr>
+          <tr><td>Paper crack</td><td>Tissue paper</td><td>High / porous</td><td>400</td><td class="bad">73.9%</td></tr>
         </tbody>
       </table>
       </div>
+      <p style="font-size:13px;">AP is YOLO-World XL, mean of 5 seeds. Detection quality tracks the texture gradient even though label counts are equal.</p>
+
+      <div class="grid2">
+        <div>
+          <h3>Splits</h3>
+          <div style="overflow-x:auto;">
+          <table>
+            <thead><tr><th></th><th>Train</th><th>Val</th><th>Test</th><th>Total</th></tr></thead>
+            <tbody>
+              <tr><td>Images</td><td>2,292</td><td>217</td><td>108</td><td class="hl">2,617</td></tr>
+              <tr><td>Labels / class</td><td>400</td><td>—</td><td>—</td><td>400</td></tr>
+              <tr><td>Classes</td><td>3</td><td>3</td><td>3</td><td>3</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+        <div>
+          <h3>Specifications</h3>
+          <ul class="specs">
+            <li><span class="k2">Task</span><span class="v2">Object detection (bounding boxes)</span></li>
+            <li><span class="k2">Annotation format</span><span class="v2">YOLO (axis-aligned boxes)</span></li>
+            <li><span class="k2">Training resolution</span><span class="v2">640 × 640 (960 for multi-scale)</span></li>
+            <li><span class="k2">Class balance</span><span class="v2">400 labels per class</span></li>
+            <li><span class="k2">Source</span><span class="v2">Roboflow Universe (workspace <span class="mono">gazxard</span>, v1)</span></li>
+            <li><span class="k2">License</span><span class="v2">CC BY 4.0</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <p style="font-size:13px;">
+        Full images are hosted on Roboflow Universe (not bundled in the repository); the repo ships the
+        <span class="mono">data.yaml</span> configuration and class definitions for reproducible training.
+      </p>
+
       <div class="cta-row">
-        <a class="btn ghost" href="https://universe.roboflow.com/gazxard/pipe-crack-detection/dataset/1" target="_blank" rel="noopener">Open dataset on Roboflow →</a>
+        <a class="btn primary" href="https://universe.roboflow.com/gazxard/pipe-crack-detection/dataset/1" target="_blank" rel="noopener">🗂️ Open dataset on Roboflow</a>
+        <a class="btn ghost" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">📜 CC BY 4.0 License</a>
       </div>
     </section>
 
@@ -365,7 +419,9 @@
       <h2>🙏 Acknowledgment</h2>
       <p>
         This research was conducted at the Department of Electronics Engineering, Faculty of Engineering,
-        University of Santo Tomas, under the SafeGuard project of Dr.&nbsp;Anthony James C. Bautista.
+        University of Santo Tomas. We thank our institution for providing the computational resources
+        (NVIDIA DGX&nbsp;A100) and support that made this work possible. We also gratefully acknowledge the
+        SafeGuard project of Dr.&nbsp;Anthony James C. Bautista for funding this research.
       </p>
     </section>
 
