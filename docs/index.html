@@ -13,94 +13,109 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #1b1a19;
-      --panel: #242120;
-      --ink: #ece7e1;
-      --muted: #a89e95;
-      --brand: #e2725b;
-      --brand-2: #ef8d77;
-      --border: #38332f;
-      --chip: #2b2724;
-      --shadow: 0 2px 12px rgba(0,0,0,.3);
-      --radius-xl: 18px;
-      --radius-lg: 14px;
-      --radius-md: 10px;
-      --maxw: 1120px;
+      --bg: #ffffff;
+      --panel: #f9f9f9;
+      --hero: #f5f5f5;
+      --ink: #2b2b2b;
+      --muted: #5f6b78;
+      --brand: #2c3e50;
+      --brandh: #3498db;
+      --brand-2: #2c3e50;
+      --border: #e6e6e6;
+      --chip: #eef1f4;
+      --code: #f5f5f5;
+      --inset: #ffffff;
+      --warn: #c0392b;
+      --shadow: 0 1px 3px rgba(0,0,0,.08);
+      --radius-xl: 12px;
+      --radius-lg: 10px;
+      --radius-md: 8px;
+      --maxw: 1024px;
+    }
+    body.dark {
+      --bg: #1e1e1e;
+      --panel: #262626;
+      --hero: #242424;
+      --ink: #f0f0f0;
+      --muted: #b5bcc4;
+      --brand: #7fb4e6;
+      --brandh: #3498db;
+      --brand-2: #9cc4e8;
+      --border: #3a3a3a;
+      --chip: #2c2c2c;
+      --code: #161616;
+      --inset: #1c1c1c;
+      --warn: #e0795f;
+      --shadow: 0 1px 3px rgba(0,0,0,.4);
     }
     * { box-sizing: border-box; }
-    html, body { height: 100%; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+      font-family: Inter, "Segoe UI", Tahoma, system-ui, -apple-system, Roboto, Arial, sans-serif;
       color: var(--ink);
-      background: linear-gradient(135deg, #1b1a19 0%, #242120 55%, #181615 100%);
-      background-attachment: fixed;
-      line-height: 1.55;
-      letter-spacing: .02em;
+      background: var(--bg);
+      line-height: 1.6;
+      transition: background-color .25s, color .25s;
     }
-    a { color: var(--brand); text-decoration: none; }
+    a { color: var(--brandh); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
 
+    /* Sticky nav */
     header {
-      position: sticky; top: 0; z-index: 40; backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(27,26,25,.95), rgba(27,26,25,.8) 60%, rgba(27,26,25,0));
+      position: sticky; top: 0; z-index: 40; backdrop-filter: blur(8px);
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
       border-bottom: 1px solid var(--border);
     }
     .nav { display:flex; align-items:center; justify-content:space-between; gap:16px; padding: 10px 24px; }
-    .logo { font-weight: 800; letter-spacing:.03em; }
-    .nav a.btn-sm { padding:8px 14px; border-radius: 999px; border:1px solid var(--border); background: var(--panel); color: var(--ink); text-decoration:none; }
-    .nav a.btn-sm:hover { border-color: var(--brand); background: var(--chip); }
+    .logo { font-weight: 800; letter-spacing:.02em; color: var(--ink); }
+    .btn-sm { padding:7px 13px; border-radius: 6px; border:1px solid var(--border); background: var(--panel); color: var(--brand); font: inherit; font-size:14px; font-weight:600; cursor:pointer; text-decoration:none; }
+    .btn-sm:hover { color:#fff; background: var(--brand); border-color: var(--brand); text-decoration:none; }
+    body.dark .btn-sm:hover { color:#1e1e1e; }
 
-    .hero { padding: 56px 0 28px; }
-    .pretitle { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius: 999px; background: var(--chip); color: var(--muted); font-weight:600; font-size: 12px; letter-spacing:.08em; text-transform:uppercase; }
-    .pretitle.award { background: rgba(212, 167, 74, .10); border:1px solid rgba(212, 167, 74, .45); color: #e3c98a; }
-    .award-row { display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin: 12px 0 4px; }
+    /* Hero header card */
+    .hero { background: var(--hero); border:1px solid var(--border); border-radius: var(--radius-xl); padding: 44px 32px 36px; margin: 24px 0 8px; text-align:center; }
+    .pretitle-row { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom: 6px; }
+    .pretitle { display:inline-flex; align-items:center; gap:8px; padding:5px 11px; border-radius: 999px; background: var(--chip); color: var(--muted); font-weight:600; font-size: 12px; letter-spacing:.06em; text-transform:uppercase; }
+    .pretitle.award { background: rgba(212,167,74,.16); border:1px solid rgba(212,167,74,.55); color:#8a6d1f; }
+    body.dark .pretitle.award { color:#e3c98a; background: rgba(212,167,74,.10); }
+    .award-row { display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin: 14px auto 4px; max-width: 920px; }
     .award-row .pretitle.award { width:100%; justify-content:flex-start; }
-    h1 { margin: 14px 0 12px; font-size: clamp(28px, 4.2vw, 52px); line-height:1.07; letter-spacing:.01em; }
-    .subtitle { color: var(--muted); font-size: clamp(14px, 1.8vw, 17px); margin-top: 12px; max-width: 880px; }
-    .authors { margin: 18px 0 8px; display:flex; flex-wrap:wrap; gap:8px 14px; font-size: 17px; align-items:center; }
-    .authors a, .authors span { color: var(--ink); }
-    .authors a { color: var(--brand-2); font-weight: 600; text-decoration: underline; }
-    .authors a:hover { color: var(--brand); }
-    .affil { color: var(--muted); font-size: 15px; }
-    .cta-row { margin: 22px 0 0; display:flex; flex-wrap:wrap; gap:12px; }
+    h1 { margin: 16px 0 12px; font-size: clamp(26px, 4vw, 44px); line-height:1.12; letter-spacing:-.01em; color: var(--ink); }
+    .subtitle { color: var(--muted); font-size: clamp(14px, 1.7vw, 17px); margin: 12px auto 0; max-width: 760px; }
+    .authors { margin: 20px auto 6px; display:flex; flex-wrap:wrap; gap:6px 12px; font-size: 16px; align-items:center; justify-content:center; max-width: 880px; }
+    .authors span { color: var(--ink); }
+    .authors a { color: var(--brandh); font-weight: 600; text-decoration: underline; }
+    .affil { color: var(--muted); font-size: 14px; margin-top: 4px; }
+    .cta-row { margin: 22px 0 0; display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
 
-    .btn { display:inline-flex; align-items:center; gap:10px; font-weight:700; padding: 12px 18px; border-radius: 12px; border: 1px solid var(--border); text-decoration:none; transition: transform .05s ease; box-shadow: var(--shadow); }
-    .btn:hover { transform: translateY(-1px); text-decoration: none; }
-    .btn.primary {
-      background: linear-gradient(135deg, #ef8d77, #e2725b);
-      color: #2a1712;
-      border: none;
-      box-shadow: 0 6px 18px rgba(226, 114, 91, 0.35);
-    }
-    .btn.primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(226, 114, 91, 0.5);
-    }
-    .btn.ghost { background: var(--panel); color: var(--ink); border-color: var(--border); }
-    .btn.ghost:hover { background: var(--chip); border-color: var(--brand); }
-    .btn.disabled { opacity:.55; cursor:not-allowed; pointer-events:none; }
-    .btn .soon { font-size: 11px; font-weight: 800; letter-spacing:.06em; text-transform: uppercase; background: var(--chip); color: var(--brand-2); border-radius: 999px; padding: 2px 8px; margin-left: 4px; }
+    .btn { display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:15px; padding: 10px 18px; border-radius: 6px; border: 1px solid var(--brand); background: var(--brand); color:#fff; text-decoration:none; transition: background-color .2s, border-color .2s; }
+    body.dark .btn { color:#1e1e1e; }
+    .btn:hover { background: var(--brandh); border-color: var(--brandh); text-decoration:none; color:#fff; }
+    .btn.ghost { background: transparent; color: var(--brand); }
+    body.dark .btn.ghost { color: var(--brand); }
+    .btn.ghost:hover { background: var(--brand); color:#fff; }
+    body.dark .btn.ghost:hover { color:#1e1e1e; }
+    .btn.disabled { background: var(--chip); border-color: var(--border); color: var(--muted); cursor:not-allowed; pointer-events:none; }
+    .btn .soon { font-size: 10.5px; font-weight: 700; letter-spacing:.05em; text-transform: uppercase; background: var(--border); color: var(--muted); border-radius: 999px; padding: 2px 8px; margin-left: 4px; }
 
-    section.card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px; margin: 26px 0; box-shadow: var(--shadow); }
-    section.card h2 { margin: 0 0 16px; font-size: clamp(22px, 2.8vw, 32px); color: var(--brand-2); font-weight: 700; }
-    section.card h3 { margin: 22px 0 8px; font-size: clamp(18px, 2vw, 22px); color: var(--ink); }
-    section.card p { margin: 12px 0; color: var(--muted); line-height: 1.7; text-align: justify; }
-    .lead { color: var(--muted); }
+    /* Section cards */
+    section.card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 30px 32px; margin: 22px 0; box-shadow: var(--shadow); }
+    section.card h2 { margin: 0 0 14px; font-size: clamp(20px, 2.4vw, 27px); color: var(--brand-2); font-weight: 700; border-bottom: 2px solid var(--border); padding-bottom: 10px; }
+    section.card h3 { margin: 22px 0 8px; font-size: clamp(17px, 1.9vw, 20px); color: var(--ink); }
+    section.card p { margin: 12px 0; color: var(--ink); line-height: 1.75; }
+    section.card p.muted, .lead { color: var(--muted); }
 
-    /* Headline numbers */
     .stats { display:grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 8px 0 4px; }
-    .stat { background:#161413; border:1px solid var(--border); border-radius: var(--radius-md); padding: 18px; text-align:center; }
-    .stat .v { font-size: 30px; font-weight: 800; color: var(--brand-2); line-height:1.1; }
-    .stat .v.warn { color: #e0a86d; }
+    .stat { background: var(--inset); border:1px solid var(--border); border-radius: var(--radius-md); padding: 18px; text-align:center; }
+    .stat .v { font-size: 28px; font-weight: 800; color: var(--brand-2); line-height:1.1; }
+    .stat .v.warn { color: var(--warn); }
     .stat .k { font-size: 12.5px; color: var(--muted); margin-top: 6px; line-height:1.4; }
 
     .grid2 { display:grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
 
-    /* Aligned figure pair */
     .fig-img { background:#fff; border:1px solid var(--border); border-radius: var(--radius-lg); padding: 12px; height: 280px; display:flex; align-items:center; justify-content:center; margin: 14px 0 0; }
     .fig-img img { max-height: 100%; width: auto; max-width: 100%; margin: 0; border: none; }
 
@@ -109,29 +124,31 @@
     figcaption { color: var(--muted); font-size: 13.5px; line-height:1.6; margin: 2px 0 6px; }
 
     .codebox {
-      background: #161413;
+      background: var(--code);
       border-radius: var(--radius-md);
       border:1px solid var(--border);
-      padding: 20px;
+      padding: 18px 20px;
       font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       font-size: 13px;
-      color: var(--brand-2);
+      color: var(--ink);
       overflow: auto;
       white-space: pre;
       line-height: 1.6;
     }
-    .copy { margin-top: 14px; font-size: 13px; cursor:pointer; color: var(--ink); background: var(--panel); border:1px solid var(--border); padding: 8px 14px; border-radius: 8px; font-family: inherit; font-weight:600; }
-    .copy:hover { border-color: var(--brand); background: var(--chip); }
+    .copy { margin-top: 12px; font-size: 13px; cursor:pointer; color:#fff; background: var(--brand); border:1px solid var(--brand); padding: 8px 16px; border-radius: 6px; font-family: inherit; font-weight:600; }
+    body.dark .copy { color:#1e1e1e; }
+    .copy:hover { background: var(--brandh); border-color: var(--brandh); color:#fff; }
 
-    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; background: #161413; }
-    th, td { padding: 12px; text-align: center; border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; background: var(--inset); }
+    th, td { padding: 11px 12px; text-align: center; border: 1px solid var(--border); }
     td:first-child, th:first-child { text-align: left; }
     th { background: var(--chip); color: var(--brand-2); font-weight: 600; }
-    tbody tr:hover { background: rgba(226, 114, 91, 0.06); }
-    td.hl { background: rgba(226, 114, 91, 0.18); font-weight: 700; color: var(--ink); }
-    td.bad { color: #e0a86d; font-weight: 700; }
+    tbody tr:hover { background: color-mix(in srgb, var(--brandh) 8%, transparent); }
+    td.hl { background: color-mix(in srgb, var(--brandh) 14%, transparent); font-weight: 700; color: var(--ink); }
+    td.bad { color: var(--warn); font-weight: 700; }
     .chips { margin-top: 14px; }
     .chip { display:inline-block; background: var(--chip); border:1px solid var(--border); border-radius: 999px; padding: 4px 12px; font-size: 12.5px; margin: 3px; color: var(--muted); }
+    .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
 
     .specs { list-style:none; padding:0; margin: 6px 0 0; }
     .specs li { display:flex; justify-content:space-between; gap:14px; border-bottom:1px dashed var(--border); padding:9px 2px; font-size:14px; }
@@ -139,12 +156,13 @@
     .specs li .k2 { color: var(--muted); }
     .specs li .v2 { color: var(--ink); font-weight:600; text-align:right; }
 
-    footer { color: var(--muted); font-size: 13px; padding: 40px 0; text-align:center; border-top: 1px solid var(--border); margin-top: 60px; }
+    footer { color: var(--muted); font-size: 13px; padding: 36px 0; text-align:center; border-top: 1px solid var(--border); margin-top: 40px; }
 
     @media (max-width: 768px) {
-      .nav { flex-direction: column; align-items: flex-start; }
-      .hero { padding: 32px 0 20px; }
-      section.card { padding: 24px; }
+      .nav { gap: 10px; }
+      .nav nav { gap: 6px; }
+      .hero { padding: 28px 20px; }
+      section.card { padding: 22px; }
       .stats { grid-template-columns: repeat(2, 1fr); }
       .grid2 { grid-template-columns: 1fr; }
       .award-row { grid-template-columns: 1fr; }
@@ -155,12 +173,13 @@
   <header>
     <div class="nav wrap">
       <div class="logo">🔬 Pipe Crack Detection</div>
-      <nav style="display:flex; gap:10px; flex-wrap: wrap;">
+      <nav style="display:flex; gap:8px; flex-wrap: wrap; align-items:center;">
         <a class="btn-sm" href="#abstract">Abstract</a>
         <a class="btn-sm" href="#results">Results</a>
         <a class="btn-sm" href="#figures">Qualitative</a>
         <a class="btn-sm" href="#dataset">Dataset</a>
         <a class="btn-sm" href="#bibtex">BibTeX</a>
+        <button id="themeToggle" class="btn-sm" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
       </nav>
     </div>
   </header>
@@ -168,7 +187,7 @@
   <main class="wrap">
     <!-- Hero -->
     <div class="hero">
-      <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;">
+      <div class="pretitle-row">
         <span class="pretitle">Accepted in <a href="https://www.icras.org/" target="_blank" rel="noopener">ICRAS 2026</a></span>
         <span class="pretitle">Object Detection • Pipe Inspection</span>
       </div>
@@ -246,7 +265,7 @@
     <!-- Results -->
     <section id="results" class="card">
       <h2>📊 Key Results</h2>
-      <p>Mean of 5 random seeds. All classes have identical training-label counts (400 per class).</p>
+      <p class="muted">Mean of 5 random seeds. All classes have identical training-label counts (400 per class).</p>
 
       <div class="stats">
         <div class="stat"><div class="v">0.863</div><div class="k">mAP<sub>50:95</sub><br>YOLO-World XL</div></div>
@@ -268,7 +287,7 @@
             </tbody>
           </table>
           </div>
-          <p style="font-size:13px; text-align:left;">YOLO-World XL, best run (seed 42), test split. Detection is reliable at IoU 0.50; the gap is a <em>localization</em> failure that grows at stricter thresholds. Across 5 seeds the per-class AP<sub>50:95</sub> means are 94.2 / 90.8 / 73.9.</p>
+          <p class="muted" style="font-size:13px; text-align:left;">YOLO-World XL, best run (seed 42), test split. Detection is reliable at IoU 0.50; the gap is a <em>localization</em> failure that grows at stricter thresholds. Across 5 seeds the per-class AP<sub>50:95</sub> means are 94.2 / 90.8 / 73.9.</p>
         </div>
         <div>
           <h3>Model Comparison (n = 5)</h3>
@@ -283,7 +302,7 @@
             </tbody>
           </table>
           </div>
-          <p style="font-size:13px; text-align:left;">Paired <em>t</em>-test. Cohen's <em>d</em>&nbsp;&gt;&nbsp;0.8 = large effect, but the substrate gap appears in both.</p>
+          <p class="muted" style="font-size:13px; text-align:left;">Paired <em>t</em>-test. Cohen's <em>d</em>&nbsp;&gt;&nbsp;0.8 = large effect, but the substrate gap appears in both.</p>
         </div>
       </div>
 
@@ -299,7 +318,7 @@
         </tbody>
       </table>
       </div>
-      <p style="font-size:13px;">None significant after Bonferroni correction (α&nbsp;=&nbsp;0.0167). The gap is a fundamental, substrate-driven localization challenge.</p>
+      <p class="muted" style="font-size:13px;">None significant after Bonferroni correction (α&nbsp;=&nbsp;0.0167). The gap is a fundamental, substrate-driven localization challenge.</p>
     </section>
 
     <!-- Figures -->
@@ -307,7 +326,7 @@
       <h2>🔍 Qualitative Results</h2>
       <h3>Localization Gap Across IoU Thresholds</h3>
       <figure>
-        <div style="background:#fff; padding:14px; border-radius:var(--radius-lg); max-width:460px; margin:14px auto 0;"><img src="figures/fig_perclass_ap.png" alt="Per-class AP and localization gap across IoU thresholds" style="border:none; margin:0;"></div>
+        <div style="background:#fff; padding:14px; border-radius:var(--radius-lg); max-width:460px; margin:14px auto 0; border:1px solid var(--border);"><img src="figures/fig_perclass_ap.png" alt="Per-class AP and localization gap across IoU thresholds" style="border:none; margin:0;"></div>
         <figcaption style="text-align:center;">Per-class AP at IoU thresholds 0.50 and 0.50 to 0.95 (YOLO-World XL, best run, seed 42). Paper crack drops 23.1 pp versus only 3.9 pp for dummy crack. The model finds the crack but cannot place the box.</figcaption>
       </figure>
 
@@ -357,7 +376,7 @@
         </tbody>
       </table>
       </div>
-      <p style="font-size:13px;">AP is YOLO-World XL, mean of 5 seeds. Detection quality tracks the texture gradient even though label counts are equal.</p>
+      <p class="muted" style="font-size:13px;">AP is YOLO-World XL, mean of 5 seeds. Detection quality tracks the texture gradient even though label counts are equal.</p>
 
       <div class="grid2">
         <div>
@@ -385,13 +404,13 @@
         </div>
       </div>
 
-      <p style="font-size:13px;">
+      <p class="muted" style="font-size:13px;">
         Full images are hosted on Roboflow Universe (not bundled in the repository); the repo ships the
         <span class="mono">data.yaml</span> configuration and class definitions for reproducible training.
       </p>
 
-      <div class="cta-row">
-        <a class="btn primary" href="https://universe.roboflow.com/gazxard/pipe-crack-detection/dataset/1" target="_blank" rel="noopener">🗂️ Open dataset on Roboflow</a>
+      <div class="cta-row" style="justify-content:flex-start;">
+        <a class="btn" href="https://universe.roboflow.com/gazxard/pipe-crack-detection/dataset/1" target="_blank" rel="noopener">🗂️ Open dataset on Roboflow</a>
         <a class="btn ghost" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">📜 CC BY 4.0 License</a>
       </div>
     </section>
@@ -434,6 +453,20 @@
 
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
+    (function () {
+      var tg = document.getElementById('themeToggle');
+      function apply(dark) {
+        document.body.classList.toggle('dark', dark);
+        tg.textContent = dark ? '☀️' : '🌙';
+        try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
+      }
+      var saved;
+      try { saved = localStorage.getItem('theme'); } catch (e) {}
+      apply(saved === 'dark');
+      tg.addEventListener('click', function () {
+        apply(!document.body.classList.contains('dark'));
+      });
+    })();
   </script>
 </body>
 </html>
