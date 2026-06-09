@@ -160,8 +160,7 @@ All models share identical hyperparameters for fair comparison:
 
 ```bibtex
 @inproceedings{biasbas2026substrate,
-  title={Substrate-Driven Localization Gaps in Pipe Crack Detection:
-         Diagnosis, Augmentation, and the Limits of Training-Time Mitigation},
+  title={Substrate-Driven Localization Gaps in Pipe Crack Detection},
   author={Biasbas, Mark Kenneth and Flores, Faustino Miguel and
           Gatchalian, Carl Christian and Velasco, Lorin Angela and
           Yadao, Dulce Maria and Pangaliman, Ma. Madecheen S. and

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Substrate-Driven Localization Gaps in Pipe Crack Detection</title>
-  <meta name="description" content="Substrate-Driven Localization Gaps in Pipe Crack Detection: Diagnosis, Augmentation, and the Limits of Training-Time Mitigation. Accepted in ICRAS 2026." />
+  <meta name="description" content="Substrate-Driven Localization Gaps in Pipe Crack Detection. How pipe surface texture limits crack localization accuracy under class-balanced training. Accepted in ICRAS 2026." />
   <meta property="og:title" content="Substrate-Driven Localization Gaps in Pipe Crack Detection" />
   <meta property="og:description" content="Balanced training does not guarantee balanced per-class performance. A 20+ point substrate-driven localization gap that augmentation cannot close. ICRAS 2026." />
   <meta property="og:type" content="website" />
@@ -180,28 +180,28 @@
       <h1>Substrate-Driven Localization Gaps in Pipe Crack Detection</h1>
 
       <p class="subtitle">
-        Diagnosis, Augmentation, and the Limits of Training-Time Mitigation. Balanced training data does not
+        How pipe surface texture limits crack localization. Balanced training data does not
         guarantee balanced per-class performance. We trace a 20+ point accuracy gap to a substrate-driven
         localization failure that data augmentation cannot close.
       </p>
 
       <div class="authors">
-        <span>Mark Kenneth Biasbas</span>
+        <span>Mark Kenneth Biasbas<sup>1</sup></span>
         <span>•</span>
-        <span>Faustino Miguel Flores</span>
+        <span>Faustino Miguel Flores<sup>1</sup></span>
         <span>•</span>
-        <span>Carl Christian Gatchalian</span>
+        <span>Carl Christian Gatchalian<sup>1</sup></span>
         <span>•</span>
-        <span>Lorin Angela Velasco</span>
+        <span>Lorin Angela Velasco<sup>1</sup></span>
         <span>•</span>
-        <span>Dulce Maria Yadao</span>
+        <span>Dulce Maria Yadao<sup>1</sup></span>
         <span>•</span>
-        <a href="https://www.ust.edu.ph/profile/pangaliman-ma-madecheen-s/" target="_blank" rel="noopener">Ma. Madecheen S. Pangaliman</a>
+        <a href="https://www.ust.edu.ph/profile/pangaliman-ma-madecheen-s/" target="_blank" rel="noopener">Ma. Madecheen S. Pangaliman<sup>1</sup></a>
         <span>•</span>
-        <span>Anthony James C. Bautista</span>
+        <span>Anthony James C. Bautista<sup>2</sup></span>
       </div>
 
-      <div class="affil">Department of Electronics Engineering, Faculty of Engineering, University of Santo Tomas</div>
+      <div class="affil"><sup>1</sup>Department of Electronics Engineering, <sup>2</sup>Department of Mechanical Engineering, University of Santo Tomas, Manila, Philippines</div>
 
       <div class="cta-row">
         <span class="btn disabled" title="Published paper link coming soon">📄 Paper <span class="soon">Coming&nbsp;soon</span></span>
@@ -257,15 +257,15 @@
           <h3>Substrate-Dependent AP Gap</h3>
           <div style="overflow-x:auto;">
           <table>
-            <thead><tr><th>Class</th><th>AP<sub>50:95</sub></th><th>AP<sub>50</sub></th><th>Loc. gap</th></tr></thead>
+            <thead><tr><th>Class</th><th>AP<sub>50</sub></th><th>AP<sub>50:95</sub></th><th>Loc. gap</th></tr></thead>
             <tbody>
-              <tr><td>Dummy crack <span style="color:var(--muted)">(smooth)</span></td><td>94.2%</td><td>99.5%</td><td>5.3 pp</td></tr>
-              <tr><td>PVC pipe crack</td><td>90.8%</td><td>99.2%</td><td>8.4 pp</td></tr>
-              <tr><td>Paper crack <span style="color:var(--muted)">(textured)</span></td><td class="bad">73.9%</td><td>97.2%</td><td class="bad">23.3 pp</td></tr>
+              <tr><td>Dummy crack <span style="color:var(--muted)">(smooth)</span></td><td>99.5%</td><td>95.6%</td><td>3.9 pp</td></tr>
+              <tr><td>PVC pipe crack</td><td>98.6%</td><td>91.2%</td><td>7.4 pp</td></tr>
+              <tr><td>Paper crack <span style="color:var(--muted)">(textured)</span></td><td>97.1%</td><td class="bad">74.0%</td><td class="bad">23.1 pp</td></tr>
             </tbody>
           </table>
           </div>
-          <p style="font-size:13px; text-align:left;">Detection is fine at IoU 0.50; the gap is a <em>localization</em> failure that grows at stricter thresholds.</p>
+          <p style="font-size:13px; text-align:left;">YOLO-World XL, best run (seed 42), test split. Detection is reliable at IoU 0.50; the gap is a <em>localization</em> failure that grows at stricter thresholds. Across 5 seeds the per-class AP<sub>50:95</sub> means are 94.2 / 90.8 / 73.9.</p>
         </div>
         <div>
           <h3>Model Comparison (n = 5)</h3>
@@ -305,7 +305,7 @@
       <h3>Localization Gap Across IoU Thresholds</h3>
       <figure>
         <div style="background:#fff; padding:14px; border-radius:var(--radius-lg); max-width:380px; margin:14px auto 0;"><img src="figures/fig_perclass_ap.png" alt="Per-class AP and localization gap across IoU thresholds" style="border:none; margin:0;"></div>
-        <figcaption style="text-align:center;">AP holds at IoU 0.50 across all classes but collapses on textured tissue at stricter IoU. The model finds the crack but cannot place the box.</figcaption>
+        <figcaption style="text-align:center;">Per-class AP at IoU thresholds 0.50 and 0.50 to 0.95 (YOLO-World XL, best run, seed 42). Paper crack drops 23.1 pp versus only 3.9 pp for dummy crack. The model finds the crack but cannot place the box.</figcaption>
       </figure>
 
       <h3>Dataset Samples</h3>
@@ -346,7 +346,7 @@
       <h3>Class Composition</h3>
       <div style="overflow-x:auto;">
       <table>
-        <thead><tr><th>Class</th><th>Substrate</th><th>Surface texture</th><th>Train labels</th><th>AP<sub>50:95</sub></th></tr></thead>
+        <thead><tr><th>Class</th><th>Substrate</th><th>Surface texture</th><th>Labels</th><th>AP<sub>50:95</sub></th></tr></thead>
         <tbody>
           <tr><td>Dummy crack</td><td>Smooth PVC sheet</td><td>Low</td><td>400</td><td class="hl">94.2%</td></tr>
           <tr><td>PVC pipe crack</td><td>PVC pipe (real fractures)</td><td>Low / curved</td><td>400</td><td>90.8%</td></tr>
@@ -364,7 +364,6 @@
             <thead><tr><th></th><th>Train</th><th>Val</th><th>Test</th><th>Total</th></tr></thead>
             <tbody>
               <tr><td>Images</td><td>2,292</td><td>217</td><td>108</td><td class="hl">2,617</td></tr>
-              <tr><td>Labels / class</td><td>400</td><td>—</td><td>—</td><td>400</td></tr>
               <tr><td>Classes</td><td>3</td><td>3</td><td>3</td><td>3</td></tr>
             </tbody>
           </table>
@@ -376,7 +375,7 @@
             <li><span class="k2">Task</span><span class="v2">Object detection (bounding boxes)</span></li>
             <li><span class="k2">Annotation format</span><span class="v2">YOLO (axis-aligned boxes)</span></li>
             <li><span class="k2">Training resolution</span><span class="v2">640 × 640 (960 for multi-scale)</span></li>
-            <li><span class="k2">Class balance</span><span class="v2">400 labels per class</span></li>
+            <li><span class="k2">Annotations</span><span class="v2">1,200 total (400 per class, balanced)</span></li>
             <li><span class="k2">Source</span><span class="v2">Roboflow Universe (workspace <span class="mono">gazxard</span>, v1)</span></li>
             <li><span class="k2">License</span><span class="v2">CC BY 4.0</span></li>
           </ul>
@@ -399,8 +398,7 @@
       <h2>📝 BibTeX</h2>
       <p>If you find this work useful in your research, please consider citing:</p>
       <div class="codebox" id="bib">@inproceedings{biasbas2026substrate,
-  title     = {Substrate-Driven Localization Gaps in Pipe Crack Detection:
-               Diagnosis, Augmentation, and the Limits of Training-Time Mitigation},
+  title     = {Substrate-Driven Localization Gaps in Pipe Crack Detection},
   author    = {Biasbas, Mark Kenneth and
                Flores, Faustino Miguel and
                Gatchalian, Carl Christian and
