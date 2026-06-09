@@ -175,8 +175,8 @@
       <div class="logo">🔬 Pipe Crack Detection</div>
       <nav style="display:flex; gap:8px; flex-wrap: wrap; align-items:center;">
         <a class="btn-sm" href="#abstract">Abstract</a>
-        <a class="btn-sm" href="#figures">Qualitative</a>
         <a class="btn-sm" href="#dataset">Dataset</a>
+        <a class="btn-sm" href="#figures">Qualitative</a>
         <a class="btn-sm" href="#results">Results</a>
         <a class="btn-sm" href="#bibtex">BibTeX</a>
         <button id="themeToggle" class="btn-sm" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
@@ -262,39 +262,6 @@
       </div>
     </section>
 
-    <!-- Qualitative Results -->
-    <section id="figures" class="card">
-      <h2>🔍 Qualitative Results</h2>
-      <h3>Localization Gap Across IoU Thresholds</h3>
-      <figure>
-        <div style="background:#fff; padding:14px; border-radius:var(--radius-lg); max-width:460px; margin:14px auto 0; border:1px solid var(--border);"><img src="figures/fig_perclass_ap.png" alt="Per-class AP and localization gap across IoU thresholds" style="border:none; margin:0;"></div>
-        <figcaption style="text-align:center;">Per-class AP at IoU thresholds 0.50 and 0.50 to 0.95 (YOLO-World XL, best run, seed 42). Paper crack drops 23.1 pp versus only 3.9 pp for dummy crack. The model finds the crack but cannot place the box.</figcaption>
-      </figure>
-
-      <h3>Dataset Samples</h3>
-      <figure>
-        <img src="figures/fig_samples.jpg" alt="Dataset samples across the three substrate types">
-        <figcaption>Three crack classes on a texture gradient: dummy crack (smooth PVC), PVC pipe crack (real fractures), and paper crack (porous tissue).</figcaption>
-      </figure>
-
-      <h3>Qualitative Detections</h3>
-      <figure>
-        <img src="figures/fig_qualitative.jpg" alt="Qualitative detection outputs">
-        <figcaption>Predicted boxes are tight on smooth surfaces and visibly looser on textured tissue.</figcaption>
-      </figure>
-
-      <div class="grid2">
-        <figure>
-          <div class="fig-img"><img src="figures/fig_mitigation_gap.png" alt="Substrate gap under each mitigation strategy"></div>
-          <figcaption>The substrate gap survives CutMix, multi-scale, and combined augmentation.</figcaption>
-        </figure>
-        <figure>
-          <div class="fig-img"><img src="figures/fig_training_curves.jpg" alt="Training convergence curves"></div>
-          <figcaption>Both models train stably to comparable overall mAP.</figcaption>
-        </figure>
-      </div>
-    </section>
-
     <!-- Dataset -->
     <section id="dataset" class="card">
       <h2>🗂️ Dataset</h2>
@@ -353,6 +320,39 @@
       <div class="cta-row" style="justify-content:flex-start;">
         <a class="btn" href="https://universe.roboflow.com/gazxard/pipe-crack-detection/dataset/1" target="_blank" rel="noopener">🗂️ Open dataset on Roboflow</a>
         <a class="btn ghost" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">📜 CC BY 4.0 License</a>
+      </div>
+    </section>
+
+    <!-- Qualitative Results -->
+    <section id="figures" class="card">
+      <h2>🔍 Qualitative Results</h2>
+      <h3>Localization Gap Across IoU Thresholds</h3>
+      <figure>
+        <div style="background:#fff; padding:14px; border-radius:var(--radius-lg); max-width:460px; margin:14px auto 0; border:1px solid var(--border);"><img src="figures/fig_perclass_ap.png" alt="Per-class AP and localization gap across IoU thresholds" style="border:none; margin:0;"></div>
+        <figcaption style="text-align:center;">Per-class AP at IoU thresholds 0.50 and 0.50 to 0.95 (YOLO-World XL, best run, seed 42). Paper crack drops 23.1 pp versus only 3.9 pp for dummy crack. The model finds the crack but cannot place the box.</figcaption>
+      </figure>
+
+      <h3>Dataset Samples</h3>
+      <figure>
+        <img src="figures/fig_samples.jpg" alt="Dataset samples across the three substrate types">
+        <figcaption>Three crack classes on a texture gradient: dummy crack (smooth PVC), PVC pipe crack (real fractures), and paper crack (porous tissue).</figcaption>
+      </figure>
+
+      <h3>Qualitative Detections</h3>
+      <figure>
+        <img src="figures/fig_qualitative.jpg" alt="Qualitative detection outputs">
+        <figcaption>Predicted boxes are tight on smooth surfaces and visibly looser on textured tissue.</figcaption>
+      </figure>
+
+      <div class="grid2">
+        <figure>
+          <div class="fig-img"><img src="figures/fig_mitigation_gap.png" alt="Substrate gap under each mitigation strategy"></div>
+          <figcaption>The substrate gap survives CutMix, multi-scale, and combined augmentation.</figcaption>
+        </figure>
+        <figure>
+          <div class="fig-img"><img src="figures/fig_training_curves.jpg" alt="Training convergence curves"></div>
+          <figcaption>Both models train stably to comparable overall mAP.</figcaption>
+        </figure>
       </div>
     </section>
 
