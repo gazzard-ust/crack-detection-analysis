@@ -119,13 +119,14 @@ All models share identical hyperparameters for fair comparison:
 │   ├── references.bib                 # Bibliography
 │   ├── IEEEtran.cls                   # IEEE conference style
 │   └── figures/                       # Paper figures
-├── 📊 figures/                           # All paper figures
-│   ├── fig_samples.png                # Dataset samples
-│   ├── fig_qualitative.png            # Detection output examples
+├── 📊 figures/                           # Paper figures
+│   ├── fig_samples.jpg                # Dataset samples
+│   ├── fig_qualitative.jpg            # Detection output examples
 │   ├── fig_model_comparison.png       # YOLO-World XL vs YOLOv8x
-│   ├── fig_perclass_ap.png            # Localization gap visualization
-│   ├── fig_mitigation_comparison.png  # Mitigation strategy results
-│   └── fig_training_curves.png        # Training convergence
+│   ├── fig_perclass_ap.png            # Localization gap (IoU thresholds)
+│   ├── fig_mitigation_gap.png         # Substrate gap by mitigation strategy
+│   ├── fig_mitigation_perclass.png    # Per-class AP by mitigation strategy
+│   └── fig_training_curves.jpg        # Training convergence
 ├── 💻 code/                              # Training, analysis & orchestration
 │   ├── ylwd_train.py                  # YOLO-World XL training
 │   ├── ylwd_eval.py                   # Model evaluation
