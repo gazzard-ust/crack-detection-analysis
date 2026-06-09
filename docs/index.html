@@ -56,6 +56,8 @@
 
     .hero { padding: 56px 0 28px; }
     .pretitle { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius: 999px; background: var(--chip); color: var(--muted); font-weight:600; font-size: 12px; letter-spacing:.08em; text-transform:uppercase; }
+    .pretitle.award { background: rgba(212, 167, 74, .10); border:1px solid rgba(212, 167, 74, .45); color: #e3c98a; }
+    .award-row { display:flex; flex-wrap:wrap; gap:8px; margin: 12px 0 4px; }
     h1 { margin: 14px 0 12px; font-size: clamp(28px, 4.2vw, 52px); line-height:1.07; letter-spacing:.01em; }
     .subtitle { color: var(--muted); font-size: clamp(14px, 1.8vw, 17px); margin-top: 12px; max-width: 880px; }
     .authors { margin: 18px 0 8px; display:flex; flex-wrap:wrap; gap:8px 14px; font-size: 17px; align-items:center; }
@@ -126,12 +128,6 @@
     .chips { margin-top: 14px; }
     .chip { display:inline-block; background: var(--chip); border:1px solid var(--border); border-radius: 999px; padding: 4px 12px; font-size: 12.5px; margin: 3px; color: var(--muted); }
 
-    .awards { list-style:none; padding:0; margin: 8px 0 0; display:grid; gap: 12px; }
-    .award { display:flex; align-items:flex-start; gap:14px; background:#0c131d; border:1px solid var(--border); border-left: 3px solid var(--brand); border-radius: var(--radius-md); padding: 14px 16px; }
-    .award .medal { font-size: 22px; line-height: 1.2; }
-    .award .rank { font-weight: 800; color: var(--brand-2); }
-    .award .venue { color: var(--muted); font-size: 14px; margin-top: 2px; }
-
     footer { color: var(--muted); font-size: 13px; padding: 40px 0; text-align:center; border-top: 1px solid var(--border); margin-top: 60px; }
 
     @media (max-width: 768px) {
@@ -149,7 +145,6 @@
       <div class="logo">🔬 Pipe Crack Detection</div>
       <nav style="display:flex; gap:10px; flex-wrap: wrap;">
         <a class="btn-sm" href="#abstract">Abstract</a>
-        <a class="btn-sm" href="#awards">Awards</a>
         <a class="btn-sm" href="#results">Results</a>
         <a class="btn-sm" href="#figures">Figures</a>
         <a class="btn-sm" href="#dataset">Dataset</a>
@@ -163,8 +158,13 @@
     <div class="hero">
       <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;">
         <span class="pretitle">Accepted in <a href="https://www.icras.org/" target="_blank" rel="noopener">ICRAS 2026</a></span>
-        <span class="pretitle">🏆 Champion • FUSERS 2026 Video Presentation</span>
         <span class="pretitle">Object Detection • Pipe Inspection</span>
+      </div>
+      <div class="award-row">
+        <span class="pretitle award">🥇 Champion • FUSERS 2026 Video Presentation</span>
+        <span class="pretitle award">🏅 People's Choice • ECE Open Lab Exhibit</span>
+        <span class="pretitle award">🎤 Presenter • S&amp;T Undergraduate Research Symposium</span>
+        <span class="pretitle award">📌 Participant • 2026 NRCP Annual Scientific Conference &amp; 93rd GMA Poster Exhibit</span>
       </div>
 
       <h1>Substrate-Dependent Performance Variation in Pipe Crack Detection</h1>
@@ -228,17 +228,6 @@
         <span class="chip">localization</span>
         <span class="chip">data augmentation</span>
       </div>
-    </section>
-
-    <!-- Awards -->
-    <section id="awards" class="card">
-      <h2>🏆 Awards &amp; Recognition</h2>
-      <ul class="awards">
-        <li class="award"><span class="medal">🥇</span><div><div class="rank">Champion</div><div class="venue">FUSERS 2026 — Video Presentation</div></div></li>
-        <li class="award"><span class="medal">🏅</span><div><div class="rank">People's Choice</div><div class="venue">ECE Open Lab Exhibit</div></div></li>
-        <li class="award"><span class="medal">🎤</span><div><div class="rank">Presenter</div><div class="venue">S&amp;T Undergraduate Research Symposium</div></div></li>
-        <li class="award"><span class="medal">📌</span><div><div class="rank">Participant</div><div class="venue">2026 NRCP Annual Scientific Conference &amp; 93rd General Membership Assembly — Poster Exhibit</div></div></li>
-      </ul>
     </section>
 
     <!-- Results -->
