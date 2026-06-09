@@ -37,8 +37,6 @@ ax.set_xticks(x)
 ax.set_xticklabels(classes, fontsize=11)
 ax.legend(loc='lower right', fontsize=10)
 ax.set_ylim(0, 110)
-ax.axhline(y=86.92, color='gray', linestyle='--', alpha=0.5, linewidth=0.8)
-ax.text(2.4, 87.8, f'mAP@50-95 = 86.9%', fontsize=8, color='gray', ha='right')
 ax.grid(axis='y', alpha=0.3)
 ax.set_axisbelow(True)
 

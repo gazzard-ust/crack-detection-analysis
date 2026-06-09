@@ -2,6 +2,7 @@
 \centering
 \caption{Mitigation strategy evaluation on the test set (mean $\pm$ std, 5 seeds). Strategies applied to YOLO-World XL only.}
 \label{tab:mitigation}
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{lcccc}
 \toprule
 Metric & Baseline & CutMix & Multi-Scale & Combined \\
@@ -20,5 +21,6 @@ PVC pipe crack & \textbf{$0.9077 \pm 0.0047$} & $0.8834 \pm 0.0127$ & $0.8882 \p
 \midrule
 Substrate gap & $20.2$ pp & $21.2$ pp & $18.1$ pp & $18.4$ pp \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
