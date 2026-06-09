@@ -2,7 +2,7 @@
 
 # 🔬 Substrate-Driven Localization Gaps in Pipe Crack Detection
 
-### 🧪 Diagnosis, Augmentation, and the Limits of Training-Time Mitigation
+### 🧪 How pipe surface texture limits crack localization under class-balanced training
 
 [![Project Page](https://img.shields.io/badge/project-page-2ea44f.svg)](https://gazzard-ust.github.io/crack-detection-analysis/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
@@ -14,23 +14,23 @@
 
 ---
 
-**TL;DR** &mdash; Despite class-balanced training (400 labels per class), per-class AP@50-95 ranges from **94.2%** (smooth PVC) to **73.9%** (textured tissue) &mdash; a **20.2 pp gap** consistent across both YOLO-World XL and YOLOv8x. Decomposing by IoU threshold reveals this is a *localization* problem (23.3 pp AP@50-to-AP@50-95 drop for paper crack vs. 5.3 pp for dummy crack). Three augmentation strategies (CutMix, multi-scale, combined) fail to close the gap, indicating a fundamental substrate-driven challenge.
+**TL;DR.** Despite class-balanced training (400 labels per class), per-class AP@50-95 ranges from **94.2%** (smooth PVC) to **73.9%** (textured tissue), a **20.2 pp gap** consistent across both YOLO-World XL and YOLOv8x. Decomposing by IoU threshold reveals this is a *localization* problem (23.1 pp AP@50-to-AP@50-95 drop for paper crack vs. 3.9 pp for dummy crack, seed 42). Three augmentation strategies (CutMix, multi-scale, combined) fail to close the gap, indicating a fundamental substrate-driven challenge.
 
 ## ❓ Why This Matters
 
-Pipe inspection systems encounter diverse surface conditions in the field. Balanced training data does **not** guarantee balanced per-class performance &mdash; substrate visual complexity governs detection difficulty. This has direct implications for practitioners deploying inspection systems on real-world piping infrastructure.
+Pipe inspection systems encounter diverse surface conditions in the field. Balanced training data does **not** guarantee balanced per-class performance; substrate visual complexity governs detection difficulty. This has direct implications for practitioners deploying inspection systems on real-world piping infrastructure.
 
 ## 📊 Key Results
 
-### 🧱 Substrate-Dependent AP Gap
+### 🧱 Substrate-Driven AP Gap
 
-| Class | AP@50-95 | AP@50 | Loc. Gap |
-|-------|:--------:|:-----:|:--------:|
-| Dummy crack | **94.2%** | 99.5% | 5.3 pp |
-| PVC pipe crack | 90.8% | 99.2% | 8.4 pp |
-| Paper crack | 73.9% | 97.2% | **23.3 pp** |
+| Class | AP@50 | AP@50-95 | Loc. Gap |
+|-------|:-----:|:--------:|:--------:|
+| Dummy crack | 99.5% | 95.6% | 3.9 pp |
+| PVC pipe crack | 98.6% | 91.2% | 7.4 pp |
+| Paper crack | 97.1% | **74.0%** | **23.1 pp** |
 
-<sub>YOLO-World XL, mean of 5 seeds. All classes have 400 training labels.</sub>
+<sub>YOLO-World XL, best run (seed 42), test split. Across 5 seeds the per-class AP@50-95 means are 94.2 / 90.8 / 73.9.</sub>
 
 ### 🏆 Model Comparison
 
@@ -61,9 +61,8 @@ Pipe inspection systems encounter diverse surface conditions in the field. Balan
 | | Train | Val | Test | Total |
 |---|:---:|:---:|:---:|:---:|
 | Images | 2,292 | 217 | 108 | 2,617 |
-| Labels per class | 400 | &mdash; | &mdash; | 400 |
 
-Three crack classes on a texture gradient: **Dummy crack** (smooth PVC) &middot; **PVC pipe crack** (smooth PVC, real fractures) &middot; **Paper crack** (porous tissue)
+Balanced at **400 labels per class** (1,200 annotations total). Three crack classes on a texture gradient: **Dummy crack** (smooth PVC) &middot; **PVC pipe crack** (smooth PVC, real fractures) &middot; **Paper crack** (porous tissue)
 
 📦 Available on [Roboflow Universe](https://universe.roboflow.com/gazxard/pipe-crack-detection/dataset/1) under CC BY 4.0.
 
@@ -116,12 +115,10 @@ All models share identical hyperparameters for fair comparison:
 ```
 .
 ├── 📄 paper/                             # LaTeX source
-│   ├── YOLO.tex                       # Main paper
+│   ├── main.tex                       # Main paper
 │   ├── references.bib                 # Bibliography
-│   ├── table_mitigation.tex           # Mitigation results table
-│   ├── table_model_comparison.tex     # Model comparison table
-│   ├── reviewer_response_sections.tex # Reviewer response drafts
-│   └── IEEEtran.cls                   # IEEE conference style
+│   ├── IEEEtran.cls                   # IEEE conference style
+│   └── figures/                       # Paper figures
 ├── 📊 figures/                           # All paper figures
 │   ├── fig_samples.png                # Dataset samples
 │   ├── fig_qualitative.png            # Detection output examples
