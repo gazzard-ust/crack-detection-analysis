@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🔬 Substrate-Dependent Performance Variation in Pipe Crack Detection
+# 🔬 Substrate-Driven Localization Gaps in Pipe Crack Detection
 
 ### 🧪 Diagnosis, Augmentation, and the Limits of Training-Time Mitigation
 
@@ -160,7 +160,7 @@ All models share identical hyperparameters for fair comparison:
 
 ```bibtex
 @inproceedings{biasbas2026substrate,
-  title={Substrate-Dependent Performance Variation in Pipe Crack Detection:
+  title={Substrate-Driven Localization Gaps in Pipe Crack Detection:
          Diagnosis, Augmentation, and the Limits of Training-Time Mitigation},
   author={Biasbas, Mark Kenneth and Flores, Faustino Miguel and
           Gatchalian, Carl Christian and Velasco, Lorin Angela and
