@@ -175,9 +175,9 @@
       <div class="logo">🔬 Pipe Crack Detection</div>
       <nav style="display:flex; gap:8px; flex-wrap: wrap; align-items:center;">
         <a class="btn-sm" href="#abstract">Abstract</a>
-        <a class="btn-sm" href="#results">Results</a>
         <a class="btn-sm" href="#figures">Qualitative</a>
         <a class="btn-sm" href="#dataset">Dataset</a>
+        <a class="btn-sm" href="#results">Results</a>
         <a class="btn-sm" href="#bibtex">BibTeX</a>
         <button id="themeToggle" class="btn-sm" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
       </nav>
@@ -262,66 +262,7 @@
       </div>
     </section>
 
-    <!-- Results -->
-    <section id="results" class="card">
-      <h2>📊 Key Results</h2>
-      <p class="muted">Mean of 5 random seeds. All classes have identical training-label counts (400 per class).</p>
-
-      <div class="stats">
-        <div class="stat"><div class="v">0.863</div><div class="k">mAP<sub>50:95</sub><br>YOLO-World XL</div></div>
-        <div class="stat"><div class="v">94.2%</div><div class="k">Best class AP<br>smooth PVC</div></div>
-        <div class="stat"><div class="v warn">73.9%</div><div class="k">Worst class AP<br>textured tissue</div></div>
-        <div class="stat"><div class="v warn">20.2 pp</div><div class="k">Substrate gap<br>persists under all aug.</div></div>
-      </div>
-
-      <div class="grid2">
-        <div>
-          <h3>Substrate-Dependent AP Gap</h3>
-          <div style="overflow-x:auto;">
-          <table>
-            <thead><tr><th>Class</th><th>AP<sub>50</sub></th><th>AP<sub>50:95</sub></th><th>Loc. gap</th></tr></thead>
-            <tbody>
-              <tr><td>Dummy crack <span style="color:var(--muted)">(smooth)</span></td><td>99.5%</td><td>95.6%</td><td>3.9 pp</td></tr>
-              <tr><td>PVC pipe crack</td><td>98.6%</td><td>91.2%</td><td>7.4 pp</td></tr>
-              <tr><td>Paper crack <span style="color:var(--muted)">(textured)</span></td><td>97.1%</td><td class="bad">74.0%</td><td class="bad">23.1 pp</td></tr>
-            </tbody>
-          </table>
-          </div>
-          <p class="muted" style="font-size:13px; text-align:left;">YOLO-World XL, best run (seed 42), test split. Detection is reliable at IoU 0.50; the gap is a <em>localization</em> failure that grows at stricter thresholds. Across 5 seeds the per-class AP<sub>50:95</sub> means are 94.2 / 90.8 / 73.9.</p>
-        </div>
-        <div>
-          <h3>Model Comparison (n = 5)</h3>
-          <div style="overflow-x:auto;">
-          <table>
-            <thead><tr><th>Metric</th><th>YOLO-World XL</th><th>YOLOv8x</th><th>Cohen's <em>d</em></th></tr></thead>
-            <tbody>
-              <tr><td>mAP<sub>50:95</sub></td><td class="hl">0.863</td><td>0.855</td><td>1.35</td></tr>
-              <tr><td>mAP<sub>50</sub></td><td class="hl">0.986</td><td>0.981</td><td>1.31</td></tr>
-              <tr><td>Recall</td><td class="hl">0.980</td><td>0.969</td><td>1.40</td></tr>
-              <tr><td>F1</td><td class="hl">0.983</td><td>0.974</td><td>1.44</td></tr>
-            </tbody>
-          </table>
-          </div>
-          <p class="muted" style="font-size:13px; text-align:left;">Paired <em>t</em>-test. Cohen's <em>d</em>&nbsp;&gt;&nbsp;0.8 = large effect, but the substrate gap appears in both.</p>
-        </div>
-      </div>
-
-      <h3>Mitigation Strategies: None Close the Gap</h3>
-      <div style="overflow-x:auto;">
-      <table>
-        <thead><tr><th>Strategy</th><th>mAP<sub>50:95</sub></th><th>Substrate gap</th><th><em>p</em> (gap)</th></tr></thead>
-        <tbody>
-          <tr><td>Baseline</td><td class="hl">0.863</td><td>20.2 pp</td><td>—</td></tr>
-          <tr><td>CutMix</td><td>0.840</td><td>21.2 pp</td><td>0.562</td></tr>
-          <tr><td>Multi-scale</td><td>0.839</td><td>18.1 pp</td><td>0.334</td></tr>
-          <tr><td>Combined</td><td>0.805</td><td>18.4 pp</td><td>0.102</td></tr>
-        </tbody>
-      </table>
-      </div>
-      <p class="muted" style="font-size:13px;">None significant after Bonferroni correction (α&nbsp;=&nbsp;0.0167). The gap is a fundamental, substrate-driven localization challenge.</p>
-    </section>
-
-    <!-- Figures -->
+    <!-- Qualitative Results -->
     <section id="figures" class="card">
       <h2>🔍 Qualitative Results</h2>
       <h3>Localization Gap Across IoU Thresholds</h3>
@@ -413,6 +354,65 @@
         <a class="btn" href="https://universe.roboflow.com/gazxard/pipe-crack-detection/dataset/1" target="_blank" rel="noopener">🗂️ Open dataset on Roboflow</a>
         <a class="btn ghost" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">📜 CC BY 4.0 License</a>
       </div>
+    </section>
+
+    <!-- Key Results -->
+    <section id="results" class="card">
+      <h2>📊 Key Results</h2>
+      <p class="muted">Mean of 5 random seeds. All classes have identical training-label counts (400 per class).</p>
+
+      <div class="stats">
+        <div class="stat"><div class="v">0.863</div><div class="k">mAP<sub>50:95</sub><br>YOLO-World XL</div></div>
+        <div class="stat"><div class="v">94.2%</div><div class="k">Best class AP<br>smooth PVC</div></div>
+        <div class="stat"><div class="v warn">73.9%</div><div class="k">Worst class AP<br>textured tissue</div></div>
+        <div class="stat"><div class="v warn">20.2 pp</div><div class="k">Substrate gap<br>persists under all aug.</div></div>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <h3>Substrate-Dependent AP Gap</h3>
+          <div style="overflow-x:auto;">
+          <table>
+            <thead><tr><th>Class</th><th>AP<sub>50</sub></th><th>AP<sub>50:95</sub></th><th>Loc. gap</th></tr></thead>
+            <tbody>
+              <tr><td>Dummy crack <span style="color:var(--muted)">(smooth)</span></td><td>99.5%</td><td>95.6%</td><td>3.9 pp</td></tr>
+              <tr><td>PVC pipe crack</td><td>98.6%</td><td>91.2%</td><td>7.4 pp</td></tr>
+              <tr><td>Paper crack <span style="color:var(--muted)">(textured)</span></td><td>97.1%</td><td class="bad">74.0%</td><td class="bad">23.1 pp</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <p class="muted" style="font-size:13px; text-align:left;">YOLO-World XL, best run (seed 42), test split. Detection is reliable at IoU 0.50; the gap is a <em>localization</em> failure that grows at stricter thresholds. Across 5 seeds the per-class AP<sub>50:95</sub> means are 94.2 / 90.8 / 73.9.</p>
+        </div>
+        <div>
+          <h3>Model Comparison (n = 5)</h3>
+          <div style="overflow-x:auto;">
+          <table>
+            <thead><tr><th>Metric</th><th>YOLO-World XL</th><th>YOLOv8x</th><th>Cohen's <em>d</em></th></tr></thead>
+            <tbody>
+              <tr><td>mAP<sub>50:95</sub></td><td class="hl">0.863</td><td>0.855</td><td>1.35</td></tr>
+              <tr><td>mAP<sub>50</sub></td><td class="hl">0.986</td><td>0.981</td><td>1.31</td></tr>
+              <tr><td>Recall</td><td class="hl">0.980</td><td>0.969</td><td>1.40</td></tr>
+              <tr><td>F1</td><td class="hl">0.983</td><td>0.974</td><td>1.44</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <p class="muted" style="font-size:13px; text-align:left;">Paired <em>t</em>-test. Cohen's <em>d</em>&nbsp;&gt;&nbsp;0.8 = large effect, but the substrate gap appears in both.</p>
+        </div>
+      </div>
+
+      <h3>Mitigation Strategies: None Close the Gap</h3>
+      <div style="overflow-x:auto;">
+      <table>
+        <thead><tr><th>Strategy</th><th>mAP<sub>50:95</sub></th><th>Substrate gap</th><th><em>p</em> (gap)</th></tr></thead>
+        <tbody>
+          <tr><td>Baseline</td><td class="hl">0.863</td><td>20.2 pp</td><td>—</td></tr>
+          <tr><td>CutMix</td><td>0.840</td><td>21.2 pp</td><td>0.562</td></tr>
+          <tr><td>Multi-scale</td><td>0.839</td><td>18.1 pp</td><td>0.334</td></tr>
+          <tr><td>Combined</td><td>0.805</td><td>18.4 pp</td><td>0.102</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="muted" style="font-size:13px;">None significant after Bonferroni correction (α&nbsp;=&nbsp;0.0167). The gap is a fundamental, substrate-driven localization challenge.</p>
     </section>
 
     <!-- BibTeX -->
